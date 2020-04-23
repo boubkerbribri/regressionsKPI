@@ -1,10 +1,11 @@
 <?php
 
-$f = fopen('res.json', 'w');
-
 include("run.php");
-if (getenv('VERSION') === false || getenv('FREEZE_DATE') === false || getenv('RELEASE_DATE') === false) {
+if (getenv('VERSION') === false || getenv('FREEZE_DATE') === false) {
     throw new Exception("VERSION, FREEZE_DATE and RELEASE_DATE vars are mandatory.");
+}
+if (getenv('RELEASE_DATE') === false) {
+    define('RELEASE_DATE', date('Y-m-d'));
 }
 
 //get the ".x" string from the version number
@@ -13,11 +14,12 @@ $version_x = substr_replace(VERSION , 'x', strrpos(VERSION , '.') +1);
 echo sprintf("--- Retrieving data for version %s", VERSION) . PHP_EOL;
 echo "--- PR data..." . PHP_EOL;
 $first_pr = $client->api('search')
-    ->issues('type:pr is:merged milestone:'.VERSION.' sort:updated-asc repo:prestashop/prestashop');
+    ->issues('type:pr is:merged milestone:'.VERSION.' sort:updated-asc repo:prestashop/prestashop', 'updated_at', 'asc');
 
 if ($first_pr['total_count'] > 0) {
     $first = $first_pr['items'][0];
     $date_first_merge = date('Y-m-d', strtotime($first['closed_at']));
+    echo "First merge date : $date_first_merge" . PHP_EOL;
 } else {
     die("Couldn't find a first PR to correlate to..." . PHP_EOL);
 }
