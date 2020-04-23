@@ -8,7 +8,7 @@ Put your token in a file named `token.txt` at the root of the project.
 
 | Parameter   | Description      |
 |-------------|----------------- |
-| VERSION     | Version of PrestaShop to use (patch version or .x version) |
+| VERSION     | Version of PrestaShop to use (patch version or .0 version) |
 | FREEZE_DATE | Arbitrary freeze date (`YYYY-MM-DD`) |
 | RELEASE_DATE | Arbitrary release date (`YYYY-MM-DD`) |
 
