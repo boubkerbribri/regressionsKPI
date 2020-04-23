@@ -1,10 +1,10 @@
 # Regressions KPI
 
-##How to use
+## How to use
 
 Put your token in a file named `token.txt` at the root of the project.
 
-##Mandatory environment variables
+## Mandatory environment variables
 
 | Parameter   | Description      |
 |-------------|----------------- |
@@ -12,7 +12,7 @@ Put your token in a file named `token.txt` at the root of the project.
 | FREEZE_DATE | Arbitrary freeze date (`YYYY-MM-DD`) |
 | RELEASE_DATE | Arbitrary release date (`YYYY-MM-DD`) |
 
-##Examples of use
+## Examples of use
 
 To get all the information about a patch release:
 ```shell script
