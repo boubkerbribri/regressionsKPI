@@ -14,12 +14,12 @@ Put your token in a file named `token.txt` at the root of the project.
 
 ## Examples of use
 
-To get all the information about a patch release:
+#### To get all the information about a patch release:
 ```shell script
 VERSION=1.7.6.2 php getPatchVersionData.php
 ```
 
-to get all the information about a minor release:
+#### To get all the information about a minor release:
 ```shell script
 VERSION=1.7.6.0 FREEZE_DATE=2019-04-08 RELEASE_DATE=2019-06-01 php getMinorVersionData.php
 ```
